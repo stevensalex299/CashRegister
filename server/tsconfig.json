@@ -35,5 +35,14 @@
     "forceConsistentCasingInFileNames": true
   },
   "include": ["db/**/*", "src/**/*", "knexfile.ts", "config"],
-  "exclude": ["bin", "dist", "dist/*", "docs", "dist-server", "coverage", "deploy", "node_modules"]
+  "exclude": [
+    "bin",
+    "dist",
+    "dist/*",
+    "docs",
+    "dist-server",
+    "coverage",
+    "deploy",
+    "node_modules"
+  ]
 }

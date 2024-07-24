@@ -1,17 +1,16 @@
 import type { Knex } from 'knex';
-import dotenv from 'dotenv';
+
+import * as dotenv from 'dotenv';
 
 dotenv.config();
-
 const migrationDirectory = './db/migrations';
+
+// This would represent the development environment, would ideally support multiple environments
 const config: Knex.Config = {
   client: 'pg',
-  connection: {
-    host: process.env.DB_HOST,
-    user: process.env.DB_USER,
-    password: process.env.DB_PASSWORD,
-    database: process.env.DB_NAME,
-  },
+  connection:
+    process.env.DATABASE_URL ||
+    'postgres://user:password@0.0.0.0:5432/cashregister',
   migrations: {
     directory: migrationDirectory,
   },
