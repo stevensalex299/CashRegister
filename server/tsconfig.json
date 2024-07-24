@@ -1,0 +1,39 @@
+{
+  "ts-node": {
+    "require": ["tsconfig-paths/register"]
+  },
+  "tsc-alias": {
+    "verbose": false,
+    "resolveFullPaths": true
+  },
+  "compilerOptions": {
+    "esModuleInterop": true,
+    "module": "commonjs",
+    "moduleResolution": "node",
+    "target": "es6",
+    "allowJs": true,
+    "downlevelIteration": true,
+    "noImplicitAny": true,
+    "noUnusedLocals": true,
+    "sourceMap": true,
+    "skipLibCheck": true,
+    "resolveJsonModule": true,
+    "strictNullChecks": true,
+    "lib": ["es6"],
+    "outDir": "./dist",
+    "typeRoots": ["node_modules/@types"],
+    "baseUrl": ".",
+    "paths": {
+      "@Config/*": ["config/*"],
+      "@Database/*": ["db/*"],
+      "@Repositories/*": ["src/repositories/*"],
+      "@Managers/*": ["src/managers/*"],
+      "@Routes/*": ["src/routes/*"],
+      "@Utils/*": ["src/utils/*"],
+      "@Tests/*": ["src/tests/*"]
+    },
+    "forceConsistentCasingInFileNames": true
+  },
+  "include": ["db/**/*", "src/**/*", "knexfile.ts", "config"],
+  "exclude": ["bin", "dist", "dist/*", "docs", "dist-server", "coverage", "deploy", "node_modules"]
+}

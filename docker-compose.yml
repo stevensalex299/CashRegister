@@ -1,0 +1,45 @@
+version: '3.8'
+
+services:
+  server:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: cashregister_server
+    ports:
+      - '3001:3000' # Map host port 3001 to container port 3000 for the server
+    environment:
+      - NODE_ENV=production
+      - DB_HOST=localhost
+      - DB_USER=user
+      - DB_PASSWORD=password
+      - DB_NAME=cashregister
+    volumes:
+      - ./:/usr/src/app # Optional: Mount source code for live updates
+
+  # client:
+  #   build:
+  #     context: .
+  #     dockerfile: Dockerfile
+  #   container_name: cashregister_client
+  #   ports:
+  #     - '3000:3000' # Map host port 3000 to container port 3000 for the client
+  #   environment:
+  #     - NODE_ENV=production
+  #   volumes:
+  #     - ./:/usr/src/app # Optional: Mount source code for live updates
+
+  db:
+    image: postgres:latest
+    container_name: cashregister_db
+    environment:
+      POSTGRES_USER: user
+      POSTGRES_PASSWORD: password
+      POSTGRES_DB: cashregister
+    ports:
+      - '5432:5432'
+    volumes:
+      - pg_data:/var/lib/postgresql/data
+
+volumes:
+  pg_data:

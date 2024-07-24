@@ -1,0 +1,52 @@
+{
+  "name": "cashregister",
+  "version": "1.0.0",
+  "description": "## The Problem Creative Cash Draw Solutions is a client who wants to provide something different for the cashiers who use their system. The function of the application is to tell the cashier how much change is owed, and what denominations should be used. In most cases the app should return the minimum amount of physical change, but the client would like to add a twist. If the \"owed\" amount is divisible by 3, the app should randomly generate the change denominations (but the math still needs to be right :))",
+  "main": "index.js",
+  "scripts": {
+    "start:server": "npx ts-node -r tsconfig-paths/register server/src/index.ts",
+    "start:client": "cd client && react-scripts start",
+    "build:server": "tsc --project server/tsconfig.json",
+    "build:client": "cd client && react-scripts build",
+    "build": "npm run build:server && npm run build:client",
+    "docker:up": "docker-compose -f docker-compose.yml up --build",
+    "start": "concurrently \"npm run start:server\" \"npm run start:client\"",
+    "lint": "eslint . --ext .js,.ts,.jsx,.tsx"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "body-parser": "^1.20.2",
+    "dotenv": "^16.4.5",
+    "express": "^4.19.2",
+    "knex": "^3.1.0",
+    "pg": "^8.12.0"
+  },
+  "devDependencies": {
+    "@babel/register": "^7.24.6",
+    "@types/express": "^4.17.21",
+    "@types/jest": "^29.5.12",
+    "@types/node": "^20.14.8",
+    "@typescript-eslint/eslint-plugin": "^7.17.0",
+    "@typescript-eslint/parser": "^7.17.0",
+    "concurrently": "^8.2.2",
+    "eslint": "^8.57.0",
+    "eslint-config-airbnb": "^19.0.4",
+    "eslint-config-airbnb-base": "^15.0.0",
+    "eslint-config-prettier": "^9.1.0",
+    "eslint-import-resolver-typescript": "^3.6.1",
+    "eslint-plugin-import": "^2.29.1",
+    "eslint-plugin-prettier": "^5.2.1",
+    "eslint-plugin-react": "^7.35.0",
+    "eslint-plugin-react-hooks": "^4.6.2",
+    "jest": "^29.7.0",
+    "prettier": "^3.3.3",
+    "sucrase": "^3.35.0",
+    "ts-jest": "^29.1.5",
+    "ts-node": "^10.9.2",
+    "tsc-alias": "^1.8.10",
+    "tsconfig-paths": "^4.2.0",
+    "typescript": "^5.5.4"
+  }
+}
