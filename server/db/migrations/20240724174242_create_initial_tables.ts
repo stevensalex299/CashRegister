@@ -18,6 +18,7 @@ export async function up(knex: Knex): Promise<void> {
       .references('id')
       .inTable('currencies')
       .onDelete('CASCADE');
+    table.string('name').notNullable(); // Ex: 'dime'
     table.decimal('value', 10, 2).notNullable(); // Ex: 1.00 for $1
     table.string('type').notNullable(); // Ex: 'coin' or 'note'
     table.timestamps(true, true); // created_at, updated_at
@@ -34,7 +35,8 @@ export async function up(knex: Knex): Promise<void> {
       .references('id')
       .inTable('currencies')
       .onDelete('CASCADE');
-    table.text('change').nullable(); // Serialized or formatted change information
+    table.decimal('change', 10, 2).notNullable(); // Ex: 0.75
+    table.text('formatted_change').nullable(); // Serialized or formatted change information
     table.timestamps(true, true); // created_at, updated_at
   });
 }

@@ -1,8 +1,14 @@
 import express from 'express';
-import bodyParser from 'body-parser';
+import TransactionRouter from './routes/transactionRouter.ts';
 
 const app = express();
-app.use(bodyParser.json());
-
 const port = 3001;
-app.listen(port, () => console.log(`Server running on port ${port}`));
+
+app.use(express.json());
+
+const transactionRouter = new TransactionRouter();
+app.use('/api', transactionRouter.getRouter());
+
+app.listen(port, () => {
+  console.log(`Server is running on http://localhost:${port}`);
+});

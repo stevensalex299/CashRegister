@@ -12,6 +12,8 @@
     "moduleResolution": "node",
     "target": "es6",
     "allowJs": true,
+    "allowImportingTsExtensions": true,
+    "noEmit": true,
     "downlevelIteration": true,
     "noImplicitAny": true,
     "noUnusedLocals": true,
@@ -23,15 +25,7 @@
     "outDir": "./dist",
     "typeRoots": ["node_modules/@types"],
     "baseUrl": ".",
-    "paths": {
-      "@Config/*": ["config/*"],
-      "@Database/*": ["db/*"],
-      "@Repositories/*": ["src/repositories/*"],
-      "@Managers/*": ["src/managers/*"],
-      "@Routes/*": ["src/routes/*"],
-      "@Utils/*": ["src/utils/*"],
-      "@Tests/*": ["src/tests/*"]
-    },
+    "paths": {},
     "forceConsistentCasingInFileNames": true
   },
   "include": ["db/**/*", "src/**/*", "knexfile.ts", "config"],
@@ -43,6 +37,7 @@
     "dist-server",
     "coverage",
     "deploy",
-    "node_modules"
+    "node_modules",
+    "uploads"
   ]
 }

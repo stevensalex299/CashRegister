@@ -19,16 +19,31 @@ export async function up(knex: Knex): Promise<void> {
 
   // Insert denominations for USD
   await knex('denominations').insert([
-    { currency_id: currencyId, value: 0.01, type: 'coin' }, // Penny
-    { currency_id: currencyId, value: 0.05, type: 'coin' }, // Nickel
-    { currency_id: currencyId, value: 0.1, type: 'coin' }, // Dime
-    { currency_id: currencyId, value: 0.25, type: 'coin' }, // Quarter
-    { currency_id: currencyId, value: 1.0, type: 'note' }, // Dollar Coin
-    { currency_id: currencyId, value: 5.0, type: 'note' }, // Five Dollar Bill
-    { currency_id: currencyId, value: 10.0, type: 'note' }, // Ten Dollar Bill
-    { currency_id: currencyId, value: 20.0, type: 'note' }, // Twenty Dollar Bill
-    { currency_id: currencyId, value: 50.0, type: 'note' }, // Fifty Dollar Bill
-    { currency_id: currencyId, value: 100.0, type: 'note' }, // Hundred Dollar Bill
+    { currency_id: currencyId, value: 0.01, name: 'penny', type: 'coin' }, // Penny
+    { currency_id: currencyId, value: 0.05, name: 'nickel', type: 'coin' }, // Nickel
+    { currency_id: currencyId, value: 0.1, name: 'dime', type: 'coin' }, // Dime
+    { currency_id: currencyId, value: 0.25, name: 'quarter', type: 'coin' }, // Quarter
+    { currency_id: currencyId, value: 1.0, name: 'dollar', type: 'note' }, // Dollar Coin
+    { currency_id: currencyId, value: 5.0, name: 'five dollar', type: 'note' }, // Five Dollar Bill
+    { currency_id: currencyId, value: 10.0, name: 'ten dollar', type: 'note' }, // Ten Dollar Bill
+    {
+      currency_id: currencyId,
+      value: 20.0,
+      name: 'twenty dollar',
+      type: 'note',
+    }, // Twenty Dollar Bill
+    {
+      currency_id: currencyId,
+      value: 50.0,
+      name: 'fifty dollar',
+      type: 'note',
+    }, // Fifty Dollar Bill
+    {
+      currency_id: currencyId,
+      value: 100.0,
+      name: 'hundred dollar',
+      type: 'note',
+    }, // Hundred Dollar Bill
   ]);
 }
 

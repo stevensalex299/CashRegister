@@ -2,7 +2,7 @@
 FROM node:22
 
 # Set the working directory in the container
-WORKDIR /
+WORKDIR /usr/src/app
 
 # Copy package.json and package-lock.json
 COPY package*.json ./
@@ -12,6 +12,12 @@ RUN npm install
 
 # Copy the rest of the application code
 COPY . .
+
+# Create the uploads directory
+RUN mkdir -p /uploads
+
+# Set permissions for the uploads directory
+RUN chown -R node:node /uploads
 
 # Build the server
 RUN npm run build:server

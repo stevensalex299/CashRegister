@@ -29,7 +29,7 @@ module.exports = {
       typescript: {},
     },
   },
-  ignorePatterns: ['node_modules/', 'dist/', 'coverage/'],
+  ignorePatterns: ['node_modules/', 'dist/', 'coverage/', '/uploads'],
   overrides: [
     {
       files: ['server/src/**/*.{ts,js,jsx,tsx}'],
@@ -44,6 +44,7 @@ module.exports = {
       rules: {
         // Server-side specific rules
         'no-console': 'warn',
+        'consistent-return': 'off',
       },
     },
     {
