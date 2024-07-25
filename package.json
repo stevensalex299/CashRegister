@@ -5,9 +5,9 @@
   "main": "index.js",
   "scripts": {
     "start:server": "npx ts-node -r tsconfig-paths/register server/src/index.ts",
-    "start:client": "cd client && react-scripts start",
+    "start:client": "cd client && npm run start",
     "build:server": "rm -rf server/dist && tsc --project server/tsconfig.json",
-    "build:client": "cd client && react-scripts build",
+    "build:client": "cd client && npm run build",
     "build": "npm run build:server && npm run build:client",
     "docker:up": "docker-compose -f docker-compose.yml up --build",
     "docker:down": "docker-compose -f docker-compose.yml down",

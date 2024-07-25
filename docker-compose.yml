@@ -16,7 +16,7 @@ services:
   server:
     build:
       context: .
-      dockerfile: Dockerfile
+      dockerfile: dockerfile.server
     container_name: cashregister_server
     ports:
       - '3001:3001' # Map host port 3001 to container port 3001 for the server
@@ -27,17 +27,17 @@ services:
       - ./:/usr/src/app # Optional: Mount source code for live updates
       - uploads:/usr/src/app/uploads
 
-  # client:
-  #   build:
-  #     context: .
-  #     dockerfile: Dockerfile
-  #   container_name: cashregister_client
-  #   ports:
-  #     - '3000:3000' # Map host port 3000 to container port 3000 for the client
-  #   environment:
-  #     - NODE_ENV=production
-  #   volumes:
-  #     - ./:/usr/src/app # Optional: Mount source code for live updates
+  client:
+    build:
+      context: .
+      dockerfile: dockerfile.client
+    container_name: cashregister_client
+    ports:
+      - '3000:3000' # Map host port 3000 to container port 3000 for the client
+    environment:
+      - NODE_ENV=production
+    volumes:
+      - ./:/usr/src/app # Optional: Mount source code for live updates
 
 volumes:
   pg_data:

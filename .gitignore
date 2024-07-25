@@ -132,4 +132,6 @@ dist
 # Ignore .DS_Store and Deploy.zip directory
 .DS_Store
 deploy.zip
+client/build
+server/dist
 uploads

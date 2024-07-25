@@ -22,12 +22,8 @@ RUN chown -R node:node /uploads
 # Build the server
 RUN npm run build:server
 
-# Build the client
-# RUN npm run build:client
-
-# Expose ports for both server (3001) and client (3000)
-EXPOSE 3000  
+# Expose port for server (3001)
 EXPOSE 3001
 
-# Start both server and client
-CMD ["npm", "run", "start"]
+# Start the server
+CMD ["npm", "run", "start:server"]
