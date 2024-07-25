@@ -7,13 +7,12 @@
     "resolveFullPaths": true
   },
   "compilerOptions": {
+    "composite": true,
     "esModuleInterop": true,
     "module": "commonjs",
     "moduleResolution": "node",
     "target": "es6",
     "allowJs": true,
-    "allowImportingTsExtensions": true,
-    "noEmit": true,
     "downlevelIteration": true,
     "noImplicitAny": true,
     "noUnusedLocals": true,
@@ -23,21 +22,10 @@
     "strictNullChecks": true,
     "lib": ["es6"],
     "outDir": "./dist",
-    "typeRoots": ["node_modules/@types"],
-    "baseUrl": ".",
+    "baseUrl": "./server/",
     "paths": {},
     "forceConsistentCasingInFileNames": true
   },
-  "include": ["db/**/*", "src/**/*", "knexfile.ts", "config"],
-  "exclude": [
-    "bin",
-    "dist",
-    "dist/*",
-    "docs",
-    "dist-server",
-    "coverage",
-    "deploy",
-    "node_modules",
-    "uploads"
-  ]
+  "include": ["db/**/*", "src/**/*", "knexfile.ts"],
+  "exclude": ["dist", "dist/*"]
 }

@@ -1,4 +1,11 @@
 {
   "files": [],
-  "references": [{ "path": "./server/tsconfig.json" }, { "path": "./client/tsconfig.json" }]
+  "references": [
+    { "path": "./server/tsconfig.json" },
+    { "path": "./client/tsconfig.json" }
+  ],
+  "compilerOptions": {
+    "typeRoots": ["node_modules/@types"],
+    "types": ["jest"]
+  }
 }

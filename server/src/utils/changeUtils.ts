@@ -1,4 +1,4 @@
-import { Denomination, DenominationCount } from '../models/currency.ts';
+import { Denomination, DenominationCount } from '../models/currency';
 
 /**
  * Calculates the change in the minimum number of denominations.

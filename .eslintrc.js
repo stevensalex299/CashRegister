@@ -26,7 +26,9 @@ module.exports = {
   },
   settings: {
     'import/resolver': {
-      typescript: {},
+      typescript: {
+        alwaysTryTypes: true,
+      },
     },
   },
   ignorePatterns: ['node_modules/', 'dist/', 'coverage/', '/uploads'],
@@ -43,6 +45,14 @@ module.exports = {
       ],
       rules: {
         // Server-side specific rules
+        'import/extensions': [
+          'error',
+          'ignorePackages',
+          {
+            ts: 'never',
+            tsx: 'never',
+          },
+        ],
         'no-console': 'warn',
         'consistent-return': 'off',
       },
@@ -64,6 +74,15 @@ module.exports = {
       ],
       rules: {
         // Client-side specific rules
+        'import/extensions': [
+          'error',
+          'ignorePackages',
+          {
+            jsx: 'never',
+            tsx: 'never',
+            ts: 'never',
+          },
+        ],
         'react/prop-types': 'off',
         'react/react-in-jsx-scope': 'off', // Required for React 17+ with JSX Transform
       },

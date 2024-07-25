@@ -1,10 +1,10 @@
-import { DenominationCount } from '../models/currency.ts';
-import TransactionRepository from '../repositories/transactionRepository.ts';
+import { DenominationCount } from '../models/currency';
+import TransactionRepository from '../repositories/transactionRepository';
 import {
   calculateChange,
   generateRandomChange,
   formatChange,
-} from '../utils/changeUtils.ts';
+} from '../utils/changeUtils';
 
 class TransactionManager {
   private repository: TransactionRepository;
@@ -15,8 +15,8 @@ class TransactionManager {
 
   /**
    * Processes a transaction and returns the change string.
-   * @param amountOwed - The amount owed.
-   * @param amountPaid - The amount paid.
+   * @param amountOwed - The amount owed in hundreds.
+   * @param amountPaid - The amount paid in hundreds.
    * @param currencyCode - The currency code Ex: 'USD'.
    * @returns A promise that resolves to the formatted change string.
    */
@@ -39,16 +39,7 @@ class TransactionManager {
     const amountPaidCents = Math.round(amountPaid * 100);
     const changeCents = amountPaidCents - amountOwedCents;
 
-    if (changeCents < 0) {
-      throw new Error('Amount paid is insufficient');
-    }
-
     let changeString = '';
-
-    // If no change due, return that as the string
-    if (changeCents === 0) {
-      return 'No Change Due';
-    }
 
     let denominationCounts: DenominationCount[];
     const RANDOM_DIVISOR = parseInt(process.env.RANDOM_DIVISOR || '3', 10);

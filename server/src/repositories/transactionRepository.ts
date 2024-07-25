@@ -1,6 +1,6 @@
 /* eslint-disable class-methods-use-this */
-import dbInstance from '../../db/db.ts';
-import { Currency, Denomination } from '../models/currency.ts';
+import dbInstance from '../../db/db';
+import { Currency, Denomination } from '../models/currency';
 
 class TransactionRepository {
   /**
@@ -38,10 +38,10 @@ class TransactionRepository {
 
   /**
    * Add a new transaction to the database.
-   * @param amountOwed - The amount owed in dollars.
-   * @param amountPaid - The amount paid in dollars.
+   * @param amountOwed - The amount owed in hundreds.
+   * @param amountPaid - The amount paid in hundreds.
    * @param currencyCode - The currency code Ex: 'USD'.
-   * @param change - The calculated change in dollars
+   * @param change - The calculated change in hundreds
    * @param formattedChange - The formatted change string Ex: '2 dollars, 1 dime'.
    * @returns A promise that resolves when the transaction is added.
    */

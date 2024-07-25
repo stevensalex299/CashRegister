@@ -1,13 +1,13 @@
 import { Router, Request, Response } from 'express';
 // eslint-disable-next-line import/no-extraneous-dependencies
 import multer from 'multer';
-import TransactionManager from '../managers/transactionManager.ts';
+import TransactionManager from '../managers/transactionManager';
 import {
   readFileContent,
   writeFileContent,
   deleteFile,
   getFilePath,
-} from '../utils/fileUtils.ts';
+} from '../utils/fileUtils';
 
 class TransactionRouter {
   private router: Router;
@@ -41,8 +41,8 @@ class TransactionRouter {
    *
    * @param req - The express request object.
    * @param req.body - The body of the request, expected to be a JSON object with the following properties:
-   *   - `amountOwed` (number): The amount that the customer owes in dollars.
-   *   - `amountPaid` (number): The amount that the customer has paid in dollars.
+   *   - `amountOwed` (number): The amount that the customer owes in hundreds.
+   *   - `amountPaid` (number): The amount that the customer has paid in hundreds.
    *   - `currency` (string): The currency code Ex: 'USD'.
    * @param res - The express response object.
    * @returns A JSON response containing the formatted change as a string, or an error message if the request is invalid.
