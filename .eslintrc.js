@@ -31,7 +31,13 @@ module.exports = {
       },
     },
   },
-  ignorePatterns: ['node_modules/', 'dist/', 'coverage/', '/uploads'],
+  ignorePatterns: [
+    'node_modules/',
+    'dist/',
+    'coverage/',
+    '/uploads',
+    'client/build/',
+  ],
   overrides: [
     {
       files: ['server/src/**/*.{ts,js,jsx,tsx}'],
