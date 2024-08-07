@@ -1,0 +1,31 @@
+{
+  "ts-node": {
+    "require": ["tsconfig-paths/register"]
+  },
+  "tsc-alias": {
+    "verbose": false,
+    "resolveFullPaths": true
+  },
+  "compilerOptions": {
+    "composite": true,
+    "esModuleInterop": true,
+    "module": "commonjs",
+    "moduleResolution": "node",
+    "target": "es6",
+    "allowJs": true,
+    "downlevelIteration": true,
+    "noImplicitAny": true,
+    "noUnusedLocals": true,
+    "sourceMap": true,
+    "skipLibCheck": true,
+    "resolveJsonModule": true,
+    "strictNullChecks": true,
+    "lib": ["es6"],
+    "outDir": "./dist",
+    "baseUrl": "./server/",
+    "paths": {},
+    "forceConsistentCasingInFileNames": true
+  },
+  "include": ["db/**/*", "src/**/*", "knexfile.ts"],
+  "exclude": ["dist", "dist/*"]
+}
